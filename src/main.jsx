@@ -10,6 +10,7 @@ createRoot(document.getElementById("root")).render(
 		<BrowserRouter>
 			<CoinContextProvider>
 				<App />
+				{/*we can access the context data in any component in the app component */}
 			</CoinContextProvider>
 		</BrowserRouter>
 	</StrictMode>

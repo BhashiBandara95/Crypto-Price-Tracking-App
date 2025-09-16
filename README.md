@@ -29,3 +29,48 @@ compltely resposive
 install react using vite scafolding - frontend Build tool
 npm i react-router-dom - to create the routing
 npm install react-google-charts - to display the charts on the web app -->
+
+<!--
+## API fetch function - 1
+
+// Fetch the data from API
+	const fetchAllCoin = async () => {
+		// convert data based on currency selection
+		const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency.name}&ids=bitcoin&names=Bitcoin&symbols=btc&category=layer-1&price_change_percentage=1h`; // convert this string in template literals
+		const options = {
+			method: "GET",
+			headers: { "x-cg-demo-api-key": "CG-pfUAcUZQQzqmiRqhYXL4aGbb" },
+			body: undefined,
+		};
+
+		try {
+			const response = await fetch(url, options);
+			const data = await response.json(); // converting response to JSON
+			setAllCoin(data); // update the setAllCoin with data
+		} catch (error) {
+			console.error(error);
+		}
+	};
+
+->
+
+
+<!--
+## API fetch function - 2
+
+// Fetch the data from API
+	const fetchAllCoin = async () => {
+		const options = {
+			method: "GET",
+			headers: { accept: 'application/json',
+            "x-cg-demo-api-key": "CG-pfUAcUZQQzqmiRqhYXL4aGbb" },
+			body: undefined,
+		};
+
+// convert data based on currency selection
+		fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency.name}`,options) // convert this string in template literals
+		.then(response => response.json())
+        .then(response => setAllCoin(response))
+        .catch(err => console.error(err));
+	};
+->
