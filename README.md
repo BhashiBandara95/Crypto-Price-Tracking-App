@@ -74,3 +74,19 @@ npm install react-google-charts - to display the charts on the web app -->
         .catch(err => console.error(err));
 	};
 ->
+
+CoinContext
+
+Fetch Function - Fetch the Coin Details
+
+const [allCoin, setAllCoin] = useState([]);
+
+const [currency, setCurrency] = useState({
+		name: "usd",
+		symbol: "$",
+});
+
+<!-- allCoin initialize with empty [] for fetch the data to empty []
+currency initialize one object with two properties name & symbol for update the currency
+
+whenver useEffect () execute, setsetDisplayCoin () set data to displayCoin -->
